@@ -1,0 +1,287 @@
+{
+	"info": {
+		"_postman_id": "0aa458c4-d184-4472-a48c-a507af51fd4a",
+		"name": "OAuth2.0-OIDC",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18699917"
+	},
+	"item": [
+		{
+			"name": "Get Access Token",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "redirect_uri",
+							"value": "http://localhost:8081/login/oauth2/code/client",
+							"type": "string"
+						},
+						{
+							"key": "scope",
+							"value": "openid",
+							"type": "string"
+						},
+						{
+							"key": "clientSecret",
+							"value": "secret",
+							"type": "string"
+						},
+						{
+							"key": "clientId",
+							"value": "client",
+							"type": "string"
+						},
+						{
+							"key": "accessTokenUrl",
+							"value": "http://localhost:8080/oauth2/token",
+							"type": "string"
+						},
+						{
+							"key": "authUrl",
+							"value": "http://localhost:8080/oauth2/authorize",
+							"type": "string"
+						},
+						{
+							"key": "tokenName",
+							"value": "Access-Token",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/userinfo",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"userinfo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get User Info with access token",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						},
+						{
+							"key": "redirect_uri",
+							"value": "http://localhost:8081/login/oauth2/code/client",
+							"type": "string"
+						},
+						{
+							"key": "scope",
+							"value": "openid",
+							"type": "string"
+						},
+						{
+							"key": "clientSecret",
+							"value": "secret",
+							"type": "string"
+						},
+						{
+							"key": "clientId",
+							"value": "client",
+							"type": "string"
+						},
+						{
+							"key": "accessTokenUrl",
+							"value": "http://localhost:8080/oauth2/token",
+							"type": "string"
+						},
+						{
+							"key": "authUrl",
+							"value": "http://localhost:8080/oauth2/authorize",
+							"type": "string"
+						},
+						{
+							"key": "tokenName",
+							"value": "Access-Token",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/userinfo",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"userinfo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Call Resource Server with Access Token(9090 port)",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						},
+						{
+							"key": "redirect_uri",
+							"value": "http://localhost:8081/login/oauth2/code/client",
+							"type": "string"
+						},
+						{
+							"key": "scope",
+							"value": "openid",
+							"type": "string"
+						},
+						{
+							"key": "clientSecret",
+							"value": "secret",
+							"type": "string"
+						},
+						{
+							"key": "clientId",
+							"value": "client",
+							"type": "string"
+						},
+						{
+							"key": "accessTokenUrl",
+							"value": "http://localhost:8080/oauth2/token",
+							"type": "string"
+						},
+						{
+							"key": "authUrl",
+							"value": "http://localhost:8080/oauth2/authorize",
+							"type": "string"
+						},
+						{
+							"key": "tokenName",
+							"value": "Access-Token",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9090/getData",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"getData"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Open Id Configuration",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/.well-known/openid-configuration",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						".well-known",
+						"openid-configuration"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Jwk Details",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/oauth2/jwks",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"oauth2",
+						"jwks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Access Token By Refresh Token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "grant_type",
+							"value": "refresh_token",
+							"type": "text"
+						},
+						{
+							"key": "client_id",
+							"value": "client",
+							"type": "text"
+						},
+						{
+							"key": "refresh_token",
+							"value": "wKwMuN5N18_AXKDGvUlQ-0ccJya-M3zff2bywKwNTNW77idGudRK5pycDTNYwp70MD0zXnKZd4uBQ9fo5gmX0Cnv-H7HZwMGVcGjjY29w-Dyc6VfcqiaTafLhHsfA5O3",
+							"type": "text"
+						},
+						{
+							"key": "redirect_uri",
+							"value": "http://localhost:8081/login/oauth2/code/client",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/oauth2/token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"oauth2",
+						"token"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

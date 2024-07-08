@@ -1,0 +1,31 @@
+#security:
+#     oauth2:
+#        authorizationserver:
+#           client:
+#              oidc-client:
+#                 registration:
+#                    client-id: "client"
+#                    client-secret: "{noop}secret"
+#                    client-authentication-methods:
+#                       - "client_secret_basic"
+#                    authorization-grant-types:
+#                       - "authorization_code"
+#                       - "refresh_token"
+#                    redirect-uris:
+#                       - "http://localhost:8081/ranjay"
+##                    post-logout-redirect-uris:
+##                       - "http://127.0.0.1:8080/"
+#                    scopes:
+#                       - "openid"
+#                       - "profile"
+#                 require-authorization-consent: true
+
+#server.servlet.session.cookie.name=AUTH_JSESSIONID
+#spring:
+#  main:
+#    allow-bean-definition-overriding: 'true'
+#  security:
+#    oauth2:
+#      authorization:
+#        server:
+#          issuer: http://localhost:8080
