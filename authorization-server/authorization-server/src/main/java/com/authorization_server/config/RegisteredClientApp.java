@@ -15,6 +15,7 @@ import org.springframework.security.oauth2.server.authorization.settings.ClientS
 @Configuration
 public class RegisteredClientApp {
 
+//this is commented by Ramjan
 	@Bean
 	public RegisteredClientRepository registeredClientRepository() {
 		RegisteredClient registeredClient = RegisteredClient.withId(UUID.randomUUID().toString()).clientId("client")
